@@ -1,0 +1,92 @@
+@prefix : <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+### Entity Types ###
+
+:Region rdf:type rdfs:Class .
+:Product rdf:type rdfs:Class .
+:Customer rdf:type rdfs:Class .
+:Page rdf:type rdfs:Class .
+
+### Properties ###
+
+:hasName rdf:type rdf:Property .
+
+### Sales Data ###
+
+:Sale rdf:type rdfs:Class .
+:Sale rdfs:subClassOf rdf:Resource .
+:Sale rdfs:label "Sale" .
+
+:date rdf:type rdf:Property .
+:region rdf:type rdf:Property .
+:product rdf:type rdf:Property .
+:sales rdf:type rdf:Property .
+
+### Customer Feedback Data ###
+
+:Feedback rdf:type rdfs:Class .
+:Feedback rdfs:subClassOf rdf:Resource .
+:Feedback rdfs:label "Feedback" .
+
+:feedback rdf:type rdf:Property .
+:customer rdf:type rdf:Property .
+
+### Website Traffic Data ###
+
+:Visit rdf:type rdfs:Class .
+:Visit rdfs:subClassOf rdf:Resource .
+:Visit rdfs:label "Visit" .
+
+:page rdf:type rdf:Property .
+:visits rdf:type rdf:Property .
+
+### Relationships ###
+
+:hasRegion rdf:type rdf:Property .
+:hasProduct rdf:type rdf:Property .
+:hasFeedback rdf:type rdf:Property .
+:hasPage rdf:type rdf:Property .
+:hasSale rdf:type rdf:Property .
+:hasVisit rdf:type rdf:Property .
+
+### Sales Data Relationships ###
+
+:Sale rdf:type rdfs:Class .
+:Sale rdfs:subClassOf rdf:Resource .
+
+:Region rdf:type rdfs:Class .
+:Region rdfs:subClassOf rdf:Resource .
+
+:Product rdf:type rdfs:Class .
+:Product rdfs:subClassOf rdf:Resource .
+
+:Sale rdf:type rdfs:Class .
+
+:Sale :hasRegion :Region .
+:Sale :hasProduct :Product .
+
+### Customer Feedback Data Relationships ###
+
+:Feedback rdf:type rdfs:Class .
+:Feedback rdfs:subClassOf rdf:Resource .
+
+:Customer rdf:type rdfs:Class .
+:Customer rdfs:subClassOf rdf:Resource .
+
+:Feedback rdf:type rdfs:Class .
+
+:Feedback :hasCustomer :Customer .
+
+### Website Traffic Data Relationships ###
+
+:Visit rdf:type rdfs:Class .
+:Visit rdfs:subClassOf rdf:Resource .
+
+:Page rdf:type rdfs:Class .
+:Page rdfs:subClassOf rdf:Resource .
+
+:Visit rdf:type rdfs:Class .
+
+:Visit :hasPage :Page .
